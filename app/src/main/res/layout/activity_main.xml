@@ -17,4 +17,10 @@
         android:layout_height="wrap_content"
         android:text="CINEMA BLEND RSS FEED" />
 
+    <Button
+        android:id="@+id/buttonnse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NSE" />
+
 </LinearLayout>

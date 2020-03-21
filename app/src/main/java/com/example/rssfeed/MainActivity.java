@@ -21,13 +21,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btnRediff = findViewById(R.id.btnRediff);
         Button btnCinemaBlend = findViewById(R.id.btnCinemaBlend);
+        Button btnNse = findViewById(R.id.buttonnse);
         btnRediff.setOnClickListener(this);
         btnCinemaBlend.setOnClickListener(this);
+        btnNse.setOnClickListener(this);
 
         //https://www.rediff.com/rss/moviesreviewsrss.xml");
         //https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=30-01-2020&to=10-02-2020&symbol=EDELWEISS");
         rssLinks.add("https://m.rediff.com/rss/moviesreviewsrss.xml");
         rssLinks.add("https://www.cinemablend.com/rss_review.php");
+        rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=30-01-2020&to=10-02-2020&symbol=EDELWEISS");
     }
 
     @Override
@@ -39,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btnCinemaBlend:
                 startActivity(new Intent(MainActivity.this, RSSFeedActivity.class).putExtra("rssLink", rssLinks.get(1)));
+                break;
+            case R.id.buttonnse:
+                startActivity(new Intent(MainActivity.this, RSSFeedActivity.class).putExtra("rssLink", rssLinks.get(2)));
                 break;
         }
     }
