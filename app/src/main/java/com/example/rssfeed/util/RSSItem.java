@@ -1,4 +1,4 @@
-package com.example.rssfeed;;
+package com.example.rssfeed.util;;
 
 
 public class RSSItem {

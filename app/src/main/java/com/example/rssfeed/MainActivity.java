@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         rssLinks.add("https://m.rediff.com/rss/moviesreviewsrss.xml");
         rssLinks.add("https://www.cinemablend.com/rss_review.php");
-        rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=30-01-2020&to=10-02-2020&symbol=EDELWEISS");
+        rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=30-01-2020&to=20-03-2020&symbol=EDELWEISS");
     }
 
     @Override

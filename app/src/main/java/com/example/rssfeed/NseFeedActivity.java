@@ -111,8 +111,8 @@ public class NseFeedActivity extends ListActivity {
                     ListAdapter adapter = new SimpleAdapter(
                             NseFeedActivity.this,
                             nseItemList, R.layout.rss_item_list_row,
-                            new String[]{TAG_LINK, TAG_TITLE, TAG_PUB_DATE},
-                            new int[]{R.id.page_url, R.id.title, R.id.pub_date});
+                            new String[]{TAG_TITLE, TAG_LTP, TAG_PUB_DATE},
+                            new int[]{R.id.title, R.id.ltp, R.id.pub_date});
 
                     // updating listview
                     setListAdapter(adapter);

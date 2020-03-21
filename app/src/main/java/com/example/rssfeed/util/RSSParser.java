@@ -1,4 +1,4 @@
-package com.example.rssfeed;
+package com.example.rssfeed.util;
 
 import android.text.TextUtils;
 import android.util.Log;

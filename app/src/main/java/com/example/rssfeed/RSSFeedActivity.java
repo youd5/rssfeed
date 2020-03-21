@@ -15,6 +15,9 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 
+import com.example.rssfeed.util.RSSItem;
+import com.example.rssfeed.util.RSSParser;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
