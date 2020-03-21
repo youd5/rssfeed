@@ -24,7 +24,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRediff.setOnClickListener(this);
         btnCinemaBlend.setOnClickListener(this);
 
-        rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=30-01-2020&to=10-02-2020&symbol=EDELWEISS"); //https://m.rediff.com/rss/moviesreviewsrss.xml");//https://www.rediff.com/rss/moviesreviewsrss.xml");//
+        //https://www.rediff.com/rss/moviesreviewsrss.xml");
+        //https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=30-01-2020&to=10-02-2020&symbol=EDELWEISS");
+        rssLinks.add("https://m.rediff.com/rss/moviesreviewsrss.xml");
         rssLinks.add("https://www.cinemablend.com/rss_review.php");
     }
 

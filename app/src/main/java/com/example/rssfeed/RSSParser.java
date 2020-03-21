@@ -1,18 +1,7 @@
-package com.example.rssfeed;;
+package com.example.rssfeed;
 
 import android.text.TextUtils;
 import android.util.Log;
-/*
-import org.apache.http.conn.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
- */
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.security.ProviderInstaller;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -21,29 +10,21 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocketFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
+;
 
 public class RSSParser {
 
@@ -107,31 +88,8 @@ public class RSSParser {
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setInstanceFollowRedirects(false);
 
-            //SSLSocketFactory sslSocketFactory = new SSLSocketFactory();
-
-
-            //connection.setDoOutput(true);
-            //connection.setRequestMethod("GET");
-            //connection.setRequestProperty("connection", "close");
-
-            /*
-            Map<String, String> headers = new HashMap<>();
-            headers.put("charset", "utf-8");
-            headers.put("X-CSRF-Token", "fetch");
-            headers.put("content-type", "application/json");
-
-             */
-            //headers.put("Accept", "*/*");
-/*
-            headers.put("Accept-Language", "en-US,en;q=0.5");
-            headers.put("Host", "https://www.rediff.com");
-            headers.put("Referer",
-                    "\"https://www.rediff.com");
-            headers.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0");
-            headers.put("X-Requested-With", "XMLHttpRequest");
-*/
             try {
-                InputStream in = connection.getInputStream();//new BufferedInputStream(connection.getInputStream());
+                InputStream in = connection.getInputStream();
                 int responseCode = connection.getResponseCode();
                 String redirectionLocation = connection.getHeaderField("Location");
                 // Handling redirection
@@ -154,7 +112,6 @@ public class RSSParser {
         }  catch (Exception e) {
             e.printStackTrace();
         }
-        // return XML
         return xml;
     }
 
