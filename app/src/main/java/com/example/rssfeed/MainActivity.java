@@ -29,25 +29,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnRediff = findViewById(R.id.btnRediff);
         Button btnCinemaBlend = findViewById(R.id.btnCinemaBlend);
         Button btnNse = findViewById(R.id.buttonnse);
+        Button btnChart = findViewById(R.id.buttonchart);
         btnRediff.setOnClickListener(this);
         btnCinemaBlend.setOnClickListener(this);
         btnNse.setOnClickListener(this);
+        btnChart.setOnClickListener(this);
 
         rssLinks.add("https://m.rediff.com/rss/moviesreviewsrss.xml");
         rssLinks.add("https://www.cinemablend.com/rss_review.php");
         rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=30-01-2020&to=20-03-2020&symbol=EDELWEISS");
-
-        Pie pie = AnyChart.pie();
-
-        List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("John", 10000));
-        data.add(new ValueDataEntry("Jake", 12000));
-        data.add(new ValueDataEntry("Peter", 18000));
-
-        pie.data(data);
-
-        AnyChartView anyChartView = (AnyChartView) findViewById(R.id.any_chart_view);
-        anyChartView.setChart(pie);
+        rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=30-01-2020&to=20-03-2020&symbol=EDELWEISS");
     }
 
     @Override
@@ -62,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.buttonnse:
                 startActivity(new Intent(MainActivity.this, NseFeedActivity.class).putExtra("rssLink", rssLinks.get(2)));
+                break;
+            case R.id.buttonchart:
+                startActivity(new Intent(MainActivity.this, ChartActivity.class).putExtra("rssLink", rssLinks.get(3)));
                 break;
         }
     }
