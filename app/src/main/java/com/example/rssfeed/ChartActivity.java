@@ -12,13 +12,21 @@ import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
 import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Pie;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Line;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.MarkerType;
+import com.anychart.enums.TooltipPositionMode;
+import com.anychart.graphics.vector.Stroke;
 import com.example.rssfeed.util.NseItem;
 import com.example.rssfeed.util.NseParser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ChartActivity extends AppCompatActivity {
 
@@ -87,15 +95,58 @@ public class ChartActivity extends AppCompatActivity {
 
             runOnUiThread(new Runnable() {
                 public void run() {
-                    Pie pie = AnyChart.pie();
-                    List<DataEntry> data = new ArrayList<>();
-                    data.add(new ValueDataEntry("John", 10000));
-                    data.add(new ValueDataEntry("Jake", 12000));
-                    data.add(new ValueDataEntry("Peter", 18000));
-                    pie.data(data);
 
                     AnyChartView anyChartView = findViewById(R.id.any_chart_view);
-                    anyChartView.setChart(pie);
+                    anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+
+                    Cartesian cartesian = AnyChart.line();
+
+                    cartesian.animation(true);
+
+                    cartesian.padding(10d, 20d, 5d, 20d);
+
+                    cartesian.crosshair().enabled(true);
+                    cartesian.crosshair()
+                            .yLabel(true)
+                            // TODO ystroke
+                            .yStroke((Stroke) null, null, null, (String) null, (String) null);
+
+                    cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
+
+                    cartesian.title("Trend of EOD price of Script");
+
+                    cartesian.yAxis(0).title("Number of Bottles Sold (thousands)");
+                    cartesian.xAxis(0).labels().padding(5d, 5d, 5d, 5d);
+
+                    List<DataEntry> seriesData = new ArrayList<>();
+
+                    for(NseItem item: nseItems){
+                        String date = item.mTIMESTAMP;
+                        Double ltp = item.CH_LAST_TRADED_PRICE;
+                        seriesData.add(new ValueDataEntry(date, ltp));
+                    }
+
+                    Set set = Set.instantiate();
+                    set.data(seriesData);
+                    Mapping series1Mapping = set.mapAs("{ x: 'x', value: 'value' }");
+
+                    Line series1 = cartesian.line(series1Mapping);
+                    series1.name("Edelweiss");
+                    series1.hovered().markers().enabled(true);
+                    series1.hovered().markers()
+                            .type(MarkerType.CIRCLE)
+                            .size(4d);
+                    series1.tooltip()
+                            .position("right")
+                            .anchor(Anchor.LEFT_CENTER)
+                            .offsetX(5d)
+                            .offsetY(5d);
+
+                    cartesian.legend().enabled(true);
+                    cartesian.legend().fontSize(13d);
+                    cartesian.legend().padding(0d, 0d, 10d, 0d);
+
+                    anyChartView.setChart(cartesian);
 
                 }
             });
@@ -109,8 +160,14 @@ public class ChartActivity extends AppCompatActivity {
             pDialog.setVisibility(View.GONE);
         }
 
+    }
+    private class CustomDataEntry extends ValueDataEntry {
 
-
+        CustomDataEntry(String x, Number value, Number value2, Number value3) {
+            super(x, value);
+            setValue("value2", value2);
+            setValue("value3", value3);
+        }
 
     }
 }

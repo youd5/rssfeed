@@ -30,7 +30,8 @@ public class NseParser extends Parser {
                 JSONObject jsonObject = new JSONObject(nse_feed_json);
                 JSONArray jsonArrayLevel2 = jsonObject.getJSONArray(key);
 
-                for (int j = 0; j < jsonArrayLevel2.length(); j++) {
+                 int size = jsonArrayLevel2.length();
+                for (int j = size-1; j >=0 ; j--) {
                     JSONObject jsonItem = jsonArrayLevel2.getJSONObject(j);
                     String symbol = jsonItem.getString("CH_SYMBOL");
 

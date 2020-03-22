@@ -6,18 +6,6 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnRediff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REDIFF.COM RSS FEED" />
-
-    <Button
-        android:id="@+id/btnCinemaBlend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CINEMA BLEND RSS FEED" />
-
-    <Button
         android:id="@+id/buttonnse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
