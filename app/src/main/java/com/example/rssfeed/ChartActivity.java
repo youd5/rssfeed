@@ -1,12 +1,12 @@
 package com.example.rssfeed;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
@@ -26,7 +26,6 @@ import com.example.rssfeed.util.NseParser;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ChartActivity extends AppCompatActivity {
 
@@ -115,8 +114,9 @@ public class ChartActivity extends AppCompatActivity {
 
                     cartesian.title("Trend of EOD price of Script");
 
-                    cartesian.yAxis(0).title("Number of Bottles Sold (thousands)");
+                    cartesian.yAxis(0).title("Price in INR");
                     cartesian.xAxis(0).labels().padding(5d, 5d, 5d, 5d);
+
 
                     List<DataEntry> seriesData = new ArrayList<>();
 
