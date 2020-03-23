@@ -53,7 +53,7 @@ public class ChartActivity extends AppCompatActivity {
 
 
     public class LoadNseFeedItemsChart extends AsyncTask<String, String, String> {
-
+        /*
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -69,7 +69,7 @@ public class ChartActivity extends AppCompatActivity {
             pDialog.setLayoutParams(lp);
             pDialog.setVisibility(View.VISIBLE);
             relativeLayout.addView(pDialog);
-        }
+        }*/
 
         @Override
         protected String doInBackground(String... args) {
@@ -120,7 +120,10 @@ public class ChartActivity extends AppCompatActivity {
 
                     List<DataEntry> seriesData = new ArrayList<>();
 
+                    String seriesScript = null;
                     for(NseItem item: nseItems){
+
+                        seriesScript = item.CH_SYMBOL;
                         String date = item.mTIMESTAMP;
                         Double ltp = item.CH_LAST_TRADED_PRICE;
                         seriesData.add(new ValueDataEntry(date, ltp));
@@ -131,7 +134,7 @@ public class ChartActivity extends AppCompatActivity {
                     Mapping series1Mapping = set.mapAs("{ x: 'x', value: 'value' }");
 
                     Line series1 = cartesian.line(series1Mapping);
-                    series1.name("Edelweiss");
+                    series1.name(seriesScript);
                     series1.hovered().markers().enabled(true);
                     series1.hovered().markers()
                             .type(MarkerType.CIRCLE)
@@ -156,9 +159,9 @@ public class ChartActivity extends AppCompatActivity {
             return null;
         }
 
-        protected void onPostExecute(String args) {
+        /*protected void onPostExecute(String args) {
             pDialog.setVisibility(View.GONE);
-        }
+        }*/
 
     }
     private class CustomDataEntry extends ValueDataEntry {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RssFeed</string>
+    <string name="app_name">Hand Curated Stocks</string>
     <string name="title_activity_nse_feed">NseFeedActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -11,7 +11,27 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string-array name="watchlist">
-        <item>Edelweiss</item>
+        <item>HDFC</item>
+        <item>HDFCBANK</item>
+        <item>HINDUNILVR</item>
         <item>ITC</item>
+        <item>ICICIBANK</item>
+        <item>KOTAKBANK</item>
+        <item>EICHERMOT</item>
+        <item>BHARTIARTL</item>
+        <item>BAJFINANCE</item>
+        <item>ASHOKLEY</item>
+        <item>ASIANPAINT</item>
+        <item>VEDL</item>
+        <item>ULTRACEMCO</item>
+        <item>MARUTI</item>
+        <item>NESTLEIND</item>
+        <item>RELIANCE</item>
+        <item>SBIN</item>
+        <item>TCS</item>
+        <item>TECHM</item>
+        <item>TITAN</item>
+        <item>WIPRO</item>
+        <item>Edelweiss</item>
     </string-array>
 </resources>

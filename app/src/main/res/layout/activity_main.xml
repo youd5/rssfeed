@@ -6,14 +6,9 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/buttonnse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="NSE" />
-    <Button
         android:id="@+id/buttonchart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show Graph" />
+        android:text="Show Watchlist" />
 
 </LinearLayout>

@@ -1,2 +1,2 @@
-rootProject.name='RssFeed'
+rootProject.name='NSE Stocks'
 include ':app'
