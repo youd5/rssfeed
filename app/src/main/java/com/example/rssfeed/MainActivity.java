@@ -26,17 +26,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=20-03-2020&symbol=EDELWEISS");
-        rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=20-03-2020&symbol=EDELWEISS");
+        rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=23-03-2020&symbol=EDELWEISS");
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonnse:
-                startActivity(new Intent(MainActivity.this, NseFeedActivity.class).putExtra("rssLink", rssLinks.get(0)));
+                startActivity(new Intent(MainActivity.this, NseFeedActivity.class).putExtra("nseLink", rssLinks.get(0)));
                 break;
             case R.id.buttonchart:
-                startActivity(new Intent(MainActivity.this, ChartActivity.class).putExtra("rssLink", rssLinks.get(1)));
+                startActivity(new Intent(MainActivity.this, WatchlistActivity.class).putExtra("nseLink", rssLinks.get(1)));
                 break;
         }
     }

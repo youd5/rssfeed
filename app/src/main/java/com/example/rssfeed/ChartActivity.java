@@ -45,7 +45,7 @@ public class ChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
-        String nse_link = getIntent().getStringExtra("rssLink");
+        String nse_link = getIntent().getStringExtra("nseLink");
         new LoadNseFeedItemsChart().execute(nse_link);
 
 
