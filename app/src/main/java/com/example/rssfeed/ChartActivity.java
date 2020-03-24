@@ -2,9 +2,7 @@ package com.example.rssfeed;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,29 +45,9 @@ public class ChartActivity extends AppCompatActivity {
 
         String nse_link = getIntent().getStringExtra("nseLink");
         new LoadNseFeedItemsChart().execute(nse_link);
-
-
     }
 
-
     public class LoadNseFeedItemsChart extends AsyncTask<String, String, String> {
-        /*
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressBar(ChartActivity.this, null, android.R.attr.progressBarStyleLarge);
-
-            RelativeLayout relativeLayout = findViewById(R.id.any_chart_view1);
-            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT
-            );
-
-            lp.addRule(RelativeLayout.CENTER_IN_PARENT);
-            pDialog.setLayoutParams(lp);
-            pDialog.setVisibility(View.VISIBLE);
-            relativeLayout.addView(pDialog);
-        }*/
 
         @Override
         protected String doInBackground(String... args) {
@@ -158,11 +136,6 @@ public class ChartActivity extends AppCompatActivity {
 
             return null;
         }
-
-        /*protected void onPostExecute(String args) {
-            pDialog.setVisibility(View.GONE);
-        }*/
-
     }
     private class CustomDataEntry extends ValueDataEntry {
 

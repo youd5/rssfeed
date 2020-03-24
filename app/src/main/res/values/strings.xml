@@ -17,8 +17,6 @@
         <item>ITC</item>
         <item>ICICIBANK</item>
         <item>KOTAKBANK</item>
-        <item>EICHERMOT</item>
-        <item>BHARTIARTL</item>
         <item>BAJFINANCE</item>
         <item>ASHOKLEY</item>
         <item>ASIANPAINT</item>
@@ -32,6 +30,6 @@
         <item>TECHM</item>
         <item>TITAN</item>
         <item>WIPRO</item>
-        <item>Edelweiss</item>
+        <item>EDELWEISS</item>
     </string-array>
 </resources>
