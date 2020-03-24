@@ -8,15 +8,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class WatchlistActivity extends AppCompatActivity {
 
     ListView listView;
     TextView textView;
     String[] listItem;
+
+    private static String TAG_TITLE = "title";
+    private static String TAG_LINK = "link";
+    private static String TAG_PUB_DATE = "pubDate";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,35 +36,41 @@ public class WatchlistActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
 
         listItem = getResources().getStringArray(R.array.watchlist);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_2, android.R.id.text1, listItem){
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent){
-                View view = super.getView(position, convertView, parent);
-                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
-                text1.setText(listItem[position]);
-                text2.setText("This questions ranks high with Google but I consider the given answer to be way too complicated. As pointed out in other answers, the desired functionality can be achieved using ArrayAdapter with a very easy trick.");
-                return view;
+        ArrayList<HashMap<String, String>> watchListItemList = new ArrayList<>();
 
-            }
-        };
+        //Populate watchListItemList
+        for(String script: listItem){
+            HashMap<String, String> map = new HashMap<String, String>();
+            map.put(TAG_TITLE, script);
+            map.put(TAG_LINK, "Google.com"); //placeholder
+            map.put(TAG_PUB_DATE, "item.pubdate"); //placeholder
+            watchListItemList.add(map);
+        }
+
+
+        ListAdapter adapter = new SimpleAdapter(
+                this,
+                watchListItemList, R.layout.rss_item_list_row,
+                new String[]{TAG_LINK, TAG_TITLE, TAG_PUB_DATE},
+                new int[]{R.id.page_url, R.id.title, R.id.pub_date});
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                String value=adapter.getItem(position);
-                Toast.makeText(getApplicationContext(),value,Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                HashMap<String, String> map = new HashMap<String, String>();
+                map = (HashMap<String, String>) parent.getAdapter().getItem(position);
+                String value=map.get("title");
                 String nseLink =
                         "https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=23-03-2020&symbol=" + value;
                 startActivity(new Intent(WatchlistActivity.this, ChartActivity.class).putExtra("nseLink", nseLink));
 
-
             }
         });
+
 
 
 
