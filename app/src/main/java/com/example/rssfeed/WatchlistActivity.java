@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -27,7 +28,20 @@ public class WatchlistActivity extends AppCompatActivity {
 
         listItem = getResources().getStringArray(R.array.watchlist);
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, listItem);
+                android.R.layout.simple_list_item_2, android.R.id.text1, listItem){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent){
+                View view = super.getView(position, convertView, parent);
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+
+                text1.setText(listItem[position]);
+                text2.setText("This questions ranks high with Google but I consider the given answer to be way too complicated. As pointed out in other answers, the desired functionality can be achieved using ArrayAdapter with a very easy trick.");
+                return view;
+
+            }
+        };
+
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
