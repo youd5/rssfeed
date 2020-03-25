@@ -35,6 +35,7 @@ public class WatchlistActivity extends ListActivity {
     private static String TAG_TITLE = "CH_SYMBOL";
     private static String TAG_PUB_DATE = "mTIMESTAMP";
     private static String TAG_LTP = "CH_LAST_TRADED_PRICE";
+    private static String TAG_PERCENT = "pChange";
 
     List<NseItem> nseItems = new ArrayList<>();
     NseParser nseParser = new NseParser();
@@ -57,7 +58,7 @@ public class WatchlistActivity extends ListActivity {
                 map = (HashMap<String, String>) parent.getAdapter().getItem(position);
                 String value=map.get("CH_SYMBOL");
                 String nseLink =
-                        "https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=23-03-2020&symbol=" + value;
+                        "https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=27-03-2020&symbol=" + value;
                 startActivity(new Intent(WatchlistActivity.this, ChartActivity.class).putExtra("nseLink", nseLink));
 
             }
@@ -101,6 +102,7 @@ public class WatchlistActivity extends ListActivity {
                 map.put("CH_SYMBOL", item.CH_SYMBOL);
                 map.put("mTIMESTAMP", item.mTIMESTAMP); // If you want parse the date
                 map.put("CH_LAST_TRADED_PRICE",item.CH_LAST_TRADED_PRICE.toString());
+                map.put("pChange", "("+ item.pChange.toString() +")");
 
                 // adding HashList to ArrayList
                 watchListItemList.add(map);
@@ -112,8 +114,8 @@ public class WatchlistActivity extends ListActivity {
                     ListAdapter adapter = new SimpleAdapter(
                             WatchlistActivity.this,
                             watchListItemList, R.layout.rss_item_list_row,
-                            new String[]{TAG_TITLE, TAG_LTP, TAG_PUB_DATE},
-                            new int[]{R.id.title, R.id.ltp, R.id.pub_date});
+                            new String[]{TAG_TITLE, TAG_LTP, TAG_PUB_DATE, TAG_PERCENT},
+                            new int[]{R.id.title, R.id.ltp, R.id.pub_date, R.id.percentchange});
 
                     setListAdapter(adapter);
                 }

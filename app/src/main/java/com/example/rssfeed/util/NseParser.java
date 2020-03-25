@@ -43,7 +43,8 @@ public class NseParser extends Parser {
 
                     String timestamp = jsonItem.getString("mTIMESTAMP");
                     Double ltp = jsonItem.getDouble("CH_LAST_TRADED_PRICE");
-                    NseItem nseItem = new NseItem(symbol, ltp, timestamp);
+                    Double pChange = 0.0; //placeholder
+                    NseItem nseItem = new NseItem(symbol, ltp, timestamp, pChange);
                     itemsList.add(nseItem);
                 }
             } catch (Exception e) {
@@ -74,7 +75,8 @@ public class NseParser extends Parser {
 
                     String timestamp = jsonItem.getString("lastUpdateTime");
                     Double ltp = jsonItem.getDouble("lastPrice");
-                    NseItem nseItem = new NseItem(symbol, ltp, timestamp);
+                    Double pChange = jsonItem.getDouble("pChange");
+                    NseItem nseItem = new NseItem(symbol, ltp, timestamp,pChange);
                     itemsList.add(nseItem);
                 }
             } catch (Exception e) {
