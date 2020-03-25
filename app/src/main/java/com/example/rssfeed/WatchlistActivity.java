@@ -1,22 +1,17 @@
 package com.example.rssfeed;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.rssfeed.util.NseItem;
 import com.example.rssfeed.util.NseParser;
@@ -29,7 +24,6 @@ public class WatchlistActivity extends ListActivity {
 
     private ProgressBar pDialog;
 
-    TextView textView;
     String[] listItem;
 
     private static String TAG_TITLE = "CH_SYMBOL";
@@ -93,10 +87,13 @@ public class WatchlistActivity extends ListActivity {
             String nse_url = "https://www.nseindia.com/api/equity-stockIndices?index=NIFTY%2050";//args[0];
             // list of rss items
             nseItems = nseParser.getNseFeedItems2(nse_url);
+            listItem = getResources().getStringArray(R.array.watchlist);
 
             for(NseItem item:nseItems){
                 // creating new HashMap
                 HashMap<String, String> map = new HashMap<String, String>();
+                if(!hasItemInCuratedList(item.CH_SYMBOL)) //skip items not present in the curated List
+                    continue;
 
                 // adding each child node to HashMap key => value
                 map.put("CH_SYMBOL", item.CH_SYMBOL);
@@ -132,5 +129,12 @@ public class WatchlistActivity extends ListActivity {
         }
 
 
+    }
+
+    private boolean hasItemInCuratedList(String ch_symbol) {
+        for(String item: listItem){
+            if(ch_symbol.equals(item)) return true;
+        }
+        return false;
     }
 }

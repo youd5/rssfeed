@@ -37,6 +37,8 @@
         android:textStyle="bold"
         android:text="TextView" />
 
+    <!-- Need to understand the relative layout better to place these items at right places in the UI
+    -->
     <TextView
         android:id="@+id/percentchange"
         android:layout_width="wrap_content"
