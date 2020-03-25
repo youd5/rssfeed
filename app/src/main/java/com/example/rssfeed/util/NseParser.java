@@ -19,6 +19,12 @@ public class NseParser extends Parser {
     public NseParser(){
 
     }
+
+    /**
+     * this method pulls script specific data from nse
+     * @param nse_url
+     * @return
+     */
     public List<NseItem> getNseFeedItems(String nse_url) {
         List<NseItem> itemsList = new ArrayList<NseItem>();
         String nse_feed_json;
@@ -37,6 +43,37 @@ public class NseParser extends Parser {
 
                     String timestamp = jsonItem.getString("mTIMESTAMP");
                     Double ltp = jsonItem.getDouble("CH_LAST_TRADED_PRICE");
+                    NseItem nseItem = new NseItem(symbol, ltp, timestamp);
+                    itemsList.add(nseItem);
+                }
+            } catch (Exception e) {
+                // Check log for errors
+                e.printStackTrace();
+            }
+        }
+
+        // return item list
+        return itemsList;
+    }
+
+    public List<NseItem> getNseFeedItems2(String nse_url) {
+        List<NseItem> itemsList = new ArrayList<NseItem>();
+        String nse_feed_json;
+
+        nse_feed_json = this.getXmlFromUrl(nse_url);
+        if (nse_feed_json != null) {
+            try {
+                String key = "data";
+                JSONObject jsonObject = new JSONObject(nse_feed_json);
+                JSONArray jsonArrayLevel2 = jsonObject.getJSONArray(key);
+
+                int size = jsonArrayLevel2.length();
+                for (int j = size-1; j >=0 ; j--) {
+                    JSONObject jsonItem = jsonArrayLevel2.getJSONObject(j);
+                    String symbol = jsonItem.getString("symbol");
+
+                    String timestamp = jsonItem.getString("lastUpdateTime");
+                    Double ltp = jsonItem.getDouble("lastPrice");
                     NseItem nseItem = new NseItem(symbol, ltp, timestamp);
                     itemsList.add(nseItem);
                 }
