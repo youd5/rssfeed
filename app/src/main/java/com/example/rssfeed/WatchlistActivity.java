@@ -109,7 +109,7 @@ public class WatchlistActivity extends ListActivity {
                 map.put("CH_SYMBOL", item.CH_SYMBOL);
                 map.put("mTIMESTAMP", item.mTIMESTAMP); // If you want parse the date
                 map.put("CH_LAST_TRADED_PRICE",item.CH_LAST_TRADED_PRICE.toString());
-                map.put("pChange", "1 Yr Return: ("+ item.pChange.toString() +")");
+                map.put("pChange", "("+ item.pChange.toString() +")");
 
                 // adding HashList to ArrayList
                 watchListItemList.add(map);
