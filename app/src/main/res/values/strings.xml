@@ -14,6 +14,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="myfinance">myFinance</string>
     <string name="top_stocks">Top Stocks</string>
+    <string name="my_finance_planner">My Finance Planner</string>
 
     <string-array name="watchlist">
         <item>HDFC</item>
