@@ -3,6 +3,7 @@ package com.example.rssfeed;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,9 +14,13 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
 import com.example.rssfeed.util.NseItem;
 import com.example.rssfeed.util.NseParser;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,14 +50,19 @@ public class WatchlistActivity extends ListActivity {
         ListView listView = getListView();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            @RequiresApi(api = Build.VERSION_CODES.O)
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
                 HashMap<String, String> map = new HashMap<String, String>();
                 map = (HashMap<String, String>) parent.getAdapter().getItem(position);
                 String value=map.get("CH_SYMBOL");
+
+                String symbolParam = "&symbol=" + value;
+                DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String toDate = "&to=" + LocalDate.now().format(formatter1).toString();
                 String nseLink =
-                        "https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=27-03-2020&symbol=" + value;
+                        "https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020" + toDate + symbolParam;
                 startActivity(new Intent(WatchlistActivity.this, ChartActivity.class).putExtra("nseLink", nseLink));
 
             }
