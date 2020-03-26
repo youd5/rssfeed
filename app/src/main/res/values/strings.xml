@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hand Curated Stocks</string>
+    <string name="app_name">My Finance Planner</string>
     <string name="title_activity_nse_feed">NseFeedActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -27,5 +27,6 @@
         <item>RELIANCE</item>
         <item>SBIN</item>
         <item>TCS</item>
+        <item>NESTLEIND</item>
     </string-array>
 </resources>

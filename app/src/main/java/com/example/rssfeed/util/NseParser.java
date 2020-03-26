@@ -73,9 +73,9 @@ public class NseParser extends Parser {
                     JSONObject jsonItem = jsonArrayLevel2.getJSONObject(j);
                     String symbol = jsonItem.getString("symbol");
 
-                    String timestamp = jsonItem.getString("lastUpdateTime");
+                    String timestamp = (jsonItem.getString("lastUpdateTime")).substring(0,jsonItem.getString("lastUpdateTime").length() - 8);
                     Double ltp = jsonItem.getDouble("lastPrice");
-                    Double pChange = jsonItem.getDouble("pChange");
+                    Double pChange = jsonItem.getDouble("perChange365d"); // 365 day change
                     NseItem nseItem = new NseItem(symbol, ltp, timestamp,pChange);
                     itemsList.add(nseItem);
                 }
