@@ -32,6 +32,7 @@
         android:id="@+id/buttonchart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:onClick="onClick"
         android:text="@string/top_stocks"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

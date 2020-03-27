@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
 
     ArrayList<String> rssLinks = new ArrayList<>();
@@ -26,18 +26,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        Button btnChart = findViewById(R.id.buttonchart);
-        btnChart.setOnClickListener(this);
-
-
-        rssLinks.add("https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=23-03-2020&symbol=EDELWEISS");
     }
-
-    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonchart:
-                startActivity(new Intent(MainActivity.this, WatchlistActivity.class).putExtra("nseLink", rssLinks.get(0)));
+                startActivity(new Intent(MainActivity.this, WatchlistActivity.class).putExtra("nseLink", ""));
                 break;
         }
     }
