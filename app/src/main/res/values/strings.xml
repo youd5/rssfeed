@@ -15,6 +15,9 @@
     <string name="myfinance">myFinance</string>
     <string name="top_stocks">Top Stocks</string>
     <string name="my_finance_planner">My Finance Planner</string>
+    <string name="read_me">This financial planner helps you\n  - Organize your finances and assets\n  - Plan for your retirement\n - Helps you achieve your financial goals efficiently</string>
+    <string name="lets_add_a_goal">Lets add a Goal</string>
+    <string name="emicalculator">EMI Calculator</string>
 
     <string-array name="watchlist">
         <item>HDFC</item>
