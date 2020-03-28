@@ -1,12 +1,9 @@
 package com.example.rssfeed;
 
 import android.content.Intent;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -23,10 +20,11 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private Toolbar myToolbar;
     String[] listItem;
+    String[] listItem2;
 
     private static String TAG_TITLE = "title";
-    private static String TAG_LINK = "link";
-    private static String TAG_PUB_DATE = "pubDate";
+    private static String TAG_ACTIVITY_ON_CLICK = "link";
+    private static String TAG_SUBHEADER = "pubDate";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +40,17 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         ArrayList<HashMap<String, String>> watchListItemList = new ArrayList<>();
-        listItem = getResources().getStringArray(R.array.watchlist);
+        listItem = getResources().getStringArray(R.array.homepagelist);
+        listItem2 = getResources().getStringArray(R.array.homepagedetail);
+
 
 
         //Populate watchListItemList
-        for(String script: listItem){
+        for(int i = 0; i < listItem.length && i < listItem2.length; i++){
             HashMap<String, String> map = new HashMap<String, String>();
-            map.put(TAG_TITLE, script);
-            map.put(TAG_LINK, "Google.com"); //placeholder
-            map.put(TAG_PUB_DATE, "item.pubdate"); //placeholder
+            map.put(TAG_TITLE, listItem[i]);
+            map.put(TAG_ACTIVITY_ON_CLICK, "ChartActivity"); //placeholder, onclick listener can use the tag link to use the right activity
+            map.put(TAG_SUBHEADER, listItem2[i]); //placeholder rename and use better.
             watchListItemList.add(map);
         }
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         ListAdapter adapter = new SimpleAdapter(
                 this,
                 watchListItemList, R.layout.rss_item_list_row,
-                new String[]{TAG_LINK, TAG_TITLE, TAG_PUB_DATE},
+                new String[]{TAG_ACTIVITY_ON_CLICK, TAG_TITLE, TAG_SUBHEADER},
                 new int[]{R.id.page_url, R.id.title, R.id.pub_date});
 
         listView.setAdapter(adapter);

@@ -19,6 +19,29 @@
     <string name="lets_add_a_goal">Lets add a Goal</string>
     <string name="emicalculator">EMI Calculator</string>
 
+    <string-array name="homepagelist">
+        <item>Read Me</item>
+        <item>Add a Goal</item>
+        <item>EMI Calculator</item>
+        <item>Fund Allocation strategies</item>
+        <item>Top Stocks</item>
+        <item>Top Books</item>
+        <item>Best Videos</item>
+        <item>Motivate me</item>
+    </string-array>
+    <string-array name="homepagedetail">
+        <item>This financial planner helps you\n  - Organize your finances and assets\n  - Plan for your retirement\n - Helps you achieve your financial goals... (Read More)</item>
+        <item>Add a finance goal.</item>
+        <item>Check your emi before going for a loan</item>
+        <item>Based on your profile, how should you allocate your funds?</item>
+        <item>Top Stocks</item>
+        <item>These are recommended books for sticking to a goal</item>
+        <item>Videos to learn how to achieve financial independence</item>
+        <item>Click to get an excellent motivational quote</item>
+
+    </string-array>
+
+
     <string-array name="watchlist">
         <item>HDFC</item>
         <item>HDFCBANK</item>
