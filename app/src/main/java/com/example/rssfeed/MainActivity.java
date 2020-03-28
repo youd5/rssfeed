@@ -81,14 +81,17 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (position) {
                     case 0:
-                        startActivity(new Intent(MainActivity.this, StyledTextActivity.class).putExtra("nseLink", ""));
+                        startActivity(new Intent(MainActivity.this, StyledTextActivity.class));
                         break;
                     case 2:
-                        startActivity(new Intent(MainActivity.this, EMICalculatorActivity.class).putExtra("nseLink", ""));
+                        startActivity(new Intent(MainActivity.this, EMICalculatorActivity.class));
                         break;
                     case 3:
                     case 4:
                         startActivity(new Intent(MainActivity.this, WatchlistActivity.class).putExtra("nseLink", ""));
+                        break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, VideoActivity.class));
                         break;
 
                 }
