@@ -21,7 +21,7 @@
 
     <string name="read_me_header">Read Me</string>
     <string name="read_me_sub_header">v-1.0</string>
-    <string name="read_me_body">This financial planner helps you - Organize your finances and assets  - Plan for your retirement - Helps you achieve your financial goals efficiently</string>
+    <string name="read_me_body">This financial planner helps you organize your finances and projects the results of your savings and investments so you can see how well prepared you are for retirement. It also help you make decisions with your money that will help you reach your financial goals as efficiently as possible.\n\nWhat Is Financial Planning?\nFinancial planning is the process of defining your financial goals, such as knowing when you will need to use your money and what you will be using it for, and then laying out a plan of action with specific steps you need to take to achieve those goals.\nTo give good advice, a financial planner must gather personal and financial data about you. They use this data to create projections that show you when and how you can accomplish your goals. These projections are based on a set of realistic assumptions about inflation, investment returns, how much you can save, and how much you will earn and spend.</string>
 
 
     <string-array name="homepagelist">

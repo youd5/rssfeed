@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         startActivity(new Intent(MainActivity.this, StyledTextActivity.class).putExtra("nseLink", ""));
                         break;
+                    case 2:
+                        startActivity(new Intent(MainActivity.this, EMICalculatorActivity.class).putExtra("nseLink", ""));
+                        break;
                     case 3:
                     case 4:
                         startActivity(new Intent(MainActivity.this, WatchlistActivity.class).putExtra("nseLink", ""));
