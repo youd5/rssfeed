@@ -19,6 +19,11 @@
     <string name="lets_add_a_goal">Lets add a Goal</string>
     <string name="emicalculator">EMI Calculator</string>
 
+    <string name="read_me_header">Read Me</string>
+    <string name="read_me_sub_header">v-1.0</string>
+    <string name="read_me_body">This financial planner helps you - Organize your finances and assets  - Plan for your retirement - Helps you achieve your financial goals efficiently</string>
+
+
     <string-array name="homepagelist">
         <item>Read Me</item>
         <item>Add a Goal</item>
@@ -30,7 +35,7 @@
         <item>Motivate me</item>
     </string-array>
     <string-array name="homepagedetail">
-        <item>This financial planner helps you\n  - Organize your finances and assets\n  - Plan for your retirement\n - Helps you achieve your financial goals... (Read More)</item>
+        <item>This financial planner helps you\n  - Organize your finances and assets... (Read More)</item>
         <item>Add a finance goal.</item>
         <item>Check your emi before going for a loan</item>
         <item>Based on your profile, how should you allocate your funds?</item>
@@ -38,7 +43,17 @@
         <item>These are recommended books for sticking to a goal</item>
         <item>Videos to learn how to achieve financial independence</item>
         <item>Click to get an excellent motivational quote</item>
+    </string-array>
 
+    <string-array name="homepagerighttext">
+        <item>Help</item>
+        <item>Tool</item>
+        <item>Tool</item>
+        <item>*Beta</item>
+        <item>*Beta</item>
+        <item>Recos</item>
+        <item>Motivate</item>
+        <item>Inspire</item>
     </string-array>
 
 

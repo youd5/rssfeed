@@ -21,18 +21,20 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar myToolbar;
     String[] listItem;
     String[] listItem2;
+    String[] listItem3;
 
     private static String TAG_TITLE = "title";
-    private static String TAG_ACTIVITY_ON_CLICK = "link";
-    private static String TAG_SUBHEADER = "pubDate";
+    private static String TAG_ACTIVITY_ON_CLICK = "activity";
+    private static String TAG_SUBHEADER = "subheader";
+    private static String TAG_RIGHT_END_TEXT = "rightendtext";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         listView = (ListView) findViewById(R.id.listviewmain);
 
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(getDrawable(R.drawable.favicon32x32));
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<HashMap<String, String>> watchListItemList = new ArrayList<>();
         listItem = getResources().getStringArray(R.array.homepagelist);
         listItem2 = getResources().getStringArray(R.array.homepagedetail);
+        listItem3 = getResources().getStringArray(R.array.homepagerighttext);
 
 
 
@@ -50,16 +53,17 @@ public class MainActivity extends AppCompatActivity {
             HashMap<String, String> map = new HashMap<String, String>();
             map.put(TAG_TITLE, listItem[i]);
             map.put(TAG_ACTIVITY_ON_CLICK, "ChartActivity"); //placeholder, onclick listener can use the tag link to use the right activity
-            map.put(TAG_SUBHEADER, listItem2[i]); //placeholder rename and use better.
+            map.put(TAG_SUBHEADER, listItem2[i]);
+            map.put(TAG_RIGHT_END_TEXT, listItem3[i]);
             watchListItemList.add(map);
         }
 
 
         ListAdapter adapter = new SimpleAdapter(
                 this,
-                watchListItemList, R.layout.rss_item_list_row,
-                new String[]{TAG_ACTIVITY_ON_CLICK, TAG_TITLE, TAG_SUBHEADER},
-                new int[]{R.id.page_url, R.id.title, R.id.pub_date});
+                watchListItemList, R.layout.home_item_list_row,
+                new String[]{TAG_ACTIVITY_ON_CLICK, TAG_TITLE, TAG_SUBHEADER, TAG_RIGHT_END_TEXT},
+                new int[]{R.id.page_url, R.id.title, R.id.pub_date,R.id.ltp});
 
         listView.setAdapter(adapter);
 
@@ -70,9 +74,22 @@ public class MainActivity extends AppCompatActivity {
                 HashMap<String, String> map = new HashMap<String, String>();
                 map = (HashMap<String, String>) parent.getAdapter().getItem(position);
                 String value=map.get("title");
+
                 String nseLink =
                         "https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=23-03-2020&symbol=" + value;
-                startActivity(new Intent(MainActivity.this, ChartActivity.class).putExtra("nseLink", nseLink));
+
+
+                switch (position) {
+                    case 0:
+                        startActivity(new Intent(MainActivity.this, StyledTextActivity.class).putExtra("nseLink", ""));
+                        break;
+                    case 3:
+                    case 4:
+                        startActivity(new Intent(MainActivity.this, WatchlistActivity.class).putExtra("nseLink", ""));
+                        break;
+
+                }
+                //startActivity(new Intent(MainActivity.this, ChartActivity.class).putExtra("nseLink", nseLink));
 
             }
         });
@@ -80,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    //unused if button removed
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonchart:
