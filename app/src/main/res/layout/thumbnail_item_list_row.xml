@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dip">
+
+    <TextView
+        android:id="@+id/page_url"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="1dip"
+        app:srcCompat="@drawable/favicon16x16" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageView"
+        android:paddingLeft="10dp"
+        android:paddingBottom="1dip"
+        android:textColor="#212121"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pub_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_alignParentLeft="true"
+        android:paddingBottom="3dip"
+        android:textColor="#9b737775"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/ltp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="TextView" />
+
+    <!-- Need to understand the relative layout better to place these items at right places in the UI
+    -->
+    <TextView
+        android:id="@+id/percentchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ltp"
+        android:layout_alignRight="@id/pub_date"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="3dip"
+        android:textColor="#9B058847"
+        android:textSize="14sp" />
+
+
+
+
+</RelativeLayout>

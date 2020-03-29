@@ -71,12 +71,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                HashMap<String, String> map = new HashMap<String, String>();
-                map = (HashMap<String, String>) parent.getAdapter().getItem(position);
-                String value=map.get("title");
-
                 String nseLink =
-                        "https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=23-03-2020&symbol=" + value;
+                        "https://www.nseindia.com/api/historical/cm/equity?series=[%22EQ%22]&from=01-01-2020&to=23-03-2020&symbol=HDFC";
 
 
                 switch (position) {
@@ -89,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
                     case 3:
                     case 4:
                         startActivity(new Intent(MainActivity.this, WatchlistActivity.class).putExtra("nseLink", ""));
+                        break;
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, ThumbnailListActivity.class));
                         break;
                     case 6:
                         startActivity(new Intent(MainActivity.this, VideoActivity.class));
