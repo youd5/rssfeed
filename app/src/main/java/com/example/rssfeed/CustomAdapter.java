@@ -54,6 +54,7 @@ class CustomAdapter implements ListAdapter {
         if(convertView == null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.thumbnail_item_list_row, null);
+            //this needs to made working. we know if removed activity onclick will work
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

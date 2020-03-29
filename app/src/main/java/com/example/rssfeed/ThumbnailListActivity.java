@@ -35,15 +35,15 @@ public class ThumbnailListActivity extends AppCompatActivity {
 
 
         ArrayList<ThumbnailListItem> arrayList = new ArrayList<ThumbnailListItem>();
-        arrayList.add(new ThumbnailListItem("Who Moved My Cheese", "https://www.amazon.in/dp/0399144463/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=10a8848761556823eda9d6e923fad69e&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/51re92xq-zL._SX140_BO1,204,203,200_.jpg"));
         arrayList.add(new ThumbnailListItem("Rich Dad Poor Dad", "https://www.amazon.in/dp/1612680194/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=cc67cf9d5cadbca517f33330c60deed2&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/51wOOMQ%2BF3L._SX140_BO1,204,203,200_.jpg"));
-        arrayList.add(new ThumbnailListItem("Javascript", "https://www.tutorialspoint.com/javascript/", "https://www.tutorialspoint.com/javascript/images/javascript-mini-logo.jpg"));
-        arrayList.add(new ThumbnailListItem("Cprogramming", "https://www.tutorialspoint.com/cprogramming/", "https://www.tutorialspoint.com/cprogramming/images/c-mini-logo.jpg"));
-        arrayList.add(new ThumbnailListItem("Cplusplus", "https://www.tutorialspoint.com/cplusplus/", "https://www.tutorialspoint.com/cplusplus/images/cpp-mini-logo.jpg"));
-        arrayList.add(new ThumbnailListItem("Android", "https://www.tutorialspoint.com/android/", "https://www.tutorialspoint.com/android/images/android-mini-logo.jpg"));
-        arrayList.add(new ThumbnailListItem("Cprogramming", "https://www.tutorialspoint.com/cprogramming/", "https://www.tutorialspoint.com/cprogramming/images/c-mini-logo.jpg"));
-        arrayList.add(new ThumbnailListItem("Cplusplus", "https://www.tutorialspoint.com/cplusplus/", "https://www.tutorialspoint.com/cplusplus/images/cpp-mini-logo.jpg"));
-        arrayList.add(new ThumbnailListItem("Android", "https://www.tutorialspoint.com/android/", "https://www.tutorialspoint.com/android/images/android-mini-logo.jpg"));
+        arrayList.add(new ThumbnailListItem("The Compound Effect", "https://www.amazon.in/dp/B06XHKBHQL/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=cc67cf9d5cadbca517f33330c60deed2&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/51Bz60iDotL._SX140_BO1,204,203,200_.jpg"));
+        arrayList.add(new ThumbnailListItem("The Richest Man in Babylon", "https://www.amazon.in/dp/1612680194/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=cc67cf9d5cadbca517f33330c60deed2&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/41N2FgMd39L._SX140_BO1,204,203,200_.jpg"));
+        arrayList.add(new ThumbnailListItem("Atomic Habits", "https://www.amazon.in/dp/1612680194/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=cc67cf9d5cadbca517f33330c60deed2&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/51Fqn4%2BUodL._SX140_BO1,204,203,200_.jpg"));
+        arrayList.add(new ThumbnailListItem("Anti Fragile", "https://www.amazon.in/dp/1612680194/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=cc67cf9d5cadbca517f33330c60deed2&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/515oFiycW7L._SX140_BO1,204,203,200_.jpg"));
+        arrayList.add(new ThumbnailListItem("Power of Now", "https://www.amazon.in/dp/1612680194/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=cc67cf9d5cadbca517f33330c60deed2&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/41coOhxR2ML._SX140_BO1,204,203,200_.jpg"));
+        arrayList.add(new ThumbnailListItem("Tools of Titan", "https://www.amazon.in/dp/1612680194/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=cc67cf9d5cadbca517f33330c60deed2&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/51Rgv4zM3pL._SX140_BO1,204,203,200_.jpg"));
+        arrayList.add(new ThumbnailListItem("The Black Swan", "https://www.amazon.in/dp/1612680194/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=cc67cf9d5cadbca517f33330c60deed2&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/51q4Y%2BEKElL._SX140_BO1,204,203,200_.jpg"));
+        arrayList.add(new ThumbnailListItem("Who Moved My Cheese", "https://www.amazon.in/dp/0399144463/ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=goodjob0f-21&linkId=10a8848761556823eda9d6e923fad69e&language=en_IN", "https://images-na.ssl-images-amazon.com/images/I/51re92xq-zL._SX140_BO1,204,203,200_.jpg"));
 
         CustomAdapter customAdapter = new CustomAdapter(this, arrayList);
         listView.setAdapter(customAdapter);
