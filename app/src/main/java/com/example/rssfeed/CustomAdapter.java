@@ -1,7 +1,9 @@
 package com.example.rssfeed;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.DataSetObserver;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,16 +52,22 @@ class CustomAdapter implements ListAdapter {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ThumbnailListItem subjectData = arrayList.get(position);
+        final ThumbnailListItem subjectData = arrayList.get(position);
         if(convertView == null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.thumbnail_item_list_row, null);
             //this needs to made working. we know if removed activity onclick will work
+
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Uri uri = Uri.parse(subjectData.Link);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    context.startActivity(intent);
                 }
             });
+
+
             TextView title = convertView.findViewById(R.id.title);
             ImageView imag = convertView.findViewById(R.id.imageView);
             TextView rightText = convertView.findViewById(R.id.ltp);
